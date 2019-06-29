@@ -37,8 +37,9 @@ If ```msg.payload``` equals set string, return ```true```, else, return ```false
 
 In the future I would like this node to be able to have several rules to check against. Very much like the core Switch component. It should however always only list expressions that returns true. If the opposite is requested, the Invert node should be used.
 
-## Example
+## Examples
 ![Example](http://i.imgur.com/m2s6JRl.png)
+![Example with If](https://imgur.com/a/6pwSL4x)
 
 ## Version history
 * 0.0.1	First release
