@@ -39,7 +39,7 @@ In the future I would like this node to be able to have several rules to check a
 
 ## Examples
 ![Example](http://i.imgur.com/m2s6JRl.png)
-![Example with If](https://imgur.com/a/6pwSL4x)
+![Example with If](https://i.imgur.com/QWMFp59.png)
 
 ## Version history
 * 0.0.1	First release
