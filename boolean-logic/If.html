@@ -1,0 +1,54 @@
+<!--
+Licensed under the MIT license, see LICENSE file.
+Author: Magnus Månsson (https://github.com/magma1447)
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('If',{
+        category: 'boolean logic',
+        color: '#C0DEED',
+        defaults: {
+			name: {
+				value: ""
+			},
+            payload: {
+				value: "",
+				required: true,
+				validate:
+					function(v) {
+						return v !== undefined && v.length > 0;
+					}
+			}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "If.png",
+        label:
+			function() {
+				var label = "If '" + this.payload + "'";
+				if( this.name !== undefined && this.name.length > 0 ) {
+					label = label + " (" + this.name + ")";
+				}
+				return label;
+			},
+		paletteLabel: function() {
+			return "If";
+		}
+    });
+</script>
+
+<script type="text/x-red" data-template-name="If">
+	<div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+	<div class="form-row">
+        <label for="node-input-payload"><i class="icon-tag"></i> Payload</label>
+        <input type="text" id="node-input-payload" placeholder="Payload">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="If">
+    <p>A node that performs an If statement on payload.<br/>
+	Add a sting into Payload that will be considered true, everything else will be considered false.</p>
+</script>

@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Licensed under the MIT license, see LICENSE file.
 Author: Per Malmberg (https://github.com/PerMalmberg)
 -->
@@ -8,22 +8,22 @@ Author: Per Malmberg (https://github.com/PerMalmberg)
         category: 'boolean logic',
         color: '#C0DEED',
         defaults: {
-			name: { 
+			name: {
 				value: ""
 			},
             operation: {
 				value: "AND",
 				required: true,
 				validate:
-					function(v) { 
+					function(v) {
 						return v !== undefined && v.length > 0;
 					}
 			},
 			inputCount: {
 				value: 2,
 				required: true,
-				validate: 
-					function(v) { 
+				validate:
+					function(v) {
 						return !isNaN( parseInt( v ) ) && parseInt( v ) >= 2;
 					}
 			},
@@ -31,15 +31,15 @@ Author: Per Malmberg (https://github.com/PerMalmberg)
 				value: "result",
 				required: true,
 				validate:
-					function(v) { 
+					function(v) {
 						return v !== undefined && v.length > 0;
 					}
 			}
         },
         inputs:1,
         outputs:1,
-        icon: "serial.png",
-        label: 
+        icon: "BooleanLogic.png",
+        label:
 			function() {
 				var label = this.operation + " [" + this.inputCount + "]";
 				if( this.name !== undefined && this.name.length > 0 ) {
@@ -81,21 +81,21 @@ Author: Per Malmberg (https://github.com/PerMalmberg)
 	Select the operation in the settings.<br/>
 	Changing the topic is usually only needed when chaining multiple boolean nodes after each other becuse the topics will then all be the same when delivered to the nodes further down the chain.<br/>
 	<br/>
-	The node expects a fixed number of topics (configured in the settings) on which it will operate. It will only output a value 
+	The node expects a fixed number of topics (configured in the settings) on which it will operate. It will only output a value
 	when it has seen the expected number of topics. If it ever sees more than the configured number of topics it will log a message then reset its state and start over.<br/>
 	<br/>
 	Example:<br/>
-	The node has been configured for two topics, with the operation OR. 
+	The node has been configured for two topics, with the operation OR.
 	<br/>
-	<ol>	
+	<ol>
 		<li>Topic 'A' with value false arrives - only one topic seen so no output.</li>
 		<li>Topic 'B' with value true arrives - two topics seen so the node evaluates the received topics and outputs true.</li>
-		<li>Topic 'C' arrives. This is the third topic which is one more than the configured number so the node resets and will not output another value until 
+		<li>Topic 'C' arrives. This is the third topic which is one more than the configured number so the node resets and will not output another value until
 		two new topics have been received. Note that when resetting it does not output any value.</li>
 	</ol>
 	<br/>
 	All incoming msg.payloads are converted into a boolean value according to the following rules (this applies to all boolean logic nodes):
-	<ol>	
+	<ol>
 		<li>Boolean values are taken as-is.</li>
 		<li>For numbers, 0 evaluates to false, all other numbers evaluates to true.</li>
 		<li>Strings are converted to numbers if they match the format of a decimal value, then the same rule as for numbers are applied. If it does not match, it evaluates to false. Also, the string "true" evaluates to true.</li>
