@@ -46,3 +46,7 @@ In the future I would like this node to be able to have several rules to check a
 * 0.0.2
   * Changed status indicators from dot to rings for false-values.
   * Reworked the conversion of input values to be consistent between numbers and strings with numeric meaning.
+* 0.1.0
+  * Added If-node
+  * Added custom icons
+
